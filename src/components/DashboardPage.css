@@ -134,6 +134,24 @@
   text-align: center;
 }
 
+.end-call-btn {
+  margin-top: 15px;
+  padding: 12px 30px;
+  background: #EF2222;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  transition: opacity 0.3s ease;
+}
+
+.end-call-btn:hover {
+  opacity: 0.9;
+}
+
 .action-buttons {
   display: flex;
   gap: 20px;

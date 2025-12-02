@@ -1,9 +1,12 @@
 import './DashboardPage.css';
 import Logo from './Logo';
 import Footer from './Footer';
-import { useEffect } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 export default function DashboardPage({ onLogout }) {
+  const [isCallActive, setIsCallActive] = useState(false);
+  const conversationRef = useRef(null);
+
   useEffect(() => {
     const script = document.createElement('script');
     script.src = 'https://elevenlabs.io/convai-widget/index.js';
@@ -17,10 +20,20 @@ export default function DashboardPage({ onLogout }) {
       const conversation = new Conversation({
         agentId: 'agent_9301kbf97wsje8br879w325qb1z9',
       });
+      conversationRef.current = conversation;
       conversation.startSession();
+      setIsCallActive(true);
     }).catch(() => {
       window.open('https://elevenlabs.io/conversational-ai/agent_9301kbf97wsje8br879w325qb1z9', '_blank');
     });
+  };
+
+  const handleEndCall = () => {
+    if (conversationRef.current) {
+      conversationRef.current.endSession();
+      conversationRef.current = null;
+    }
+    setIsCallActive(false);
   };
 
   return (
@@ -51,6 +64,12 @@ export default function DashboardPage({ onLogout }) {
           </button>
           
           <p className="talk-text">Talk to Us</p>
+          
+          {isCallActive && (
+            <button className="end-call-btn" onClick={handleEndCall}>
+              End Call
+            </button>
+          )}
         </div>
 
         <div className="action-buttons">
