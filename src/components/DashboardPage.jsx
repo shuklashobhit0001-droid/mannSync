@@ -3,6 +3,11 @@ import Logo from './Logo';
 import Footer from './Footer';
 
 export default function DashboardPage({ onLogout }) {
+  const handleTalkClick = () => {
+    // ElevenLabs agent integration
+    window.open('https://elevenlabs.io/conversational-ai', '_blank');
+  };
+
   return (
     <div className="dashboard-page">
       <div className="dashboard-header">
@@ -23,7 +28,7 @@ export default function DashboardPage({ onLogout }) {
           
           <img src="https://storage.googleapis.com/safetories-images/mannsync/mannSynctm.gif" alt="Mann Sync Animation" className="center-animation" />
           
-          <button className="talk-btn">
+          <button className="talk-btn" onClick={handleTalkClick}>
             <svg width="36" height="35" viewBox="0 0 36 35" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path opacity="0.4" d="M29.2969 14.3291C28.4948 14.3291 27.8439 14.9527 27.8439 15.7242C27.8439 20.935 23.428 25.1747 18.0007 25.1747C12.572 25.1747 8.15615 20.935 8.15615 15.7242C8.15615 14.9527 7.50517 14.3291 6.70307 14.3291C5.90098 14.3291 5.25 14.9527 5.25 15.7242C5.25 22.0022 10.1992 27.1851 16.5477 27.8812V30.6882C16.5477 31.4583 17.1972 32.0833 18.0007 32.0833C18.8028 32.0833 19.4538 31.4583 19.4538 30.6882V27.8812C25.8008 27.1851 30.75 22.0022 30.75 15.7242C30.75 14.9527 30.099 14.3291 29.2969 14.3291Z" fill="white"/>
               <path d="M17.7369 22.1915H18.2629C21.8665 22.1915 24.7901 19.3859 24.7901 15.9261V9.18348C24.7901 5.7208 21.8665 2.91663 18.2629 2.91663H17.7369C14.1332 2.91663 11.2097 5.7208 11.2097 9.18348V15.9261C11.2097 19.3859 14.1332 22.1915 17.7369 22.1915Z" fill="white"/>
