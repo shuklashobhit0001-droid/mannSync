@@ -16,16 +16,28 @@ export default function DashboardPage({ onLogout }) {
   }, []);
 
   const handleTalkClick = async () => {
-    await import('@elevenlabs/elevenlabs-js').then(({ Conversation }) => {
-      const conversation = new Conversation({
+    try {
+      const { Conversation } = await import('@elevenlabs/elevenlabs-js');
+      const conversation = await Conversation.startSession({
         agentId: 'agent_9301kbf97wsje8br879w325qb1z9',
+        onConnect: () => {
+          console.log('Connected to agent');
+          setIsCallActive(true);
+        },
+        onDisconnect: () => {
+          console.log('Disconnected');
+          setIsCallActive(false);
+        },
+        onError: (error) => {
+          console.error('Error:', error);
+          setIsCallActive(false);
+        }
       });
       conversationRef.current = conversation;
-      conversation.startSession();
-      setIsCallActive(true);
-    }).catch(() => {
+    } catch (error) {
+      console.error('Failed to start conversation:', error);
       window.open('https://elevenlabs.io/conversational-ai/agent_9301kbf97wsje8br879w325qb1z9', '_blank');
-    });
+    }
   };
 
   const handleEndCall = () => {
