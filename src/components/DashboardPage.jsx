@@ -1,21 +1,12 @@
 import './DashboardPage.css';
 import Logo from './Logo';
 import Footer from './Footer';
-import { useState } from 'react';
 
 export default function DashboardPage({ onLogout }) {
-  const [isAgentActive, setIsAgentActive] = useState(false);
 
   const handleTalkClick = () => {
-    setIsAgentActive(true);
-    // Initialize ElevenLabs Conversational AI
-    if (window.ElevenLabs) {
-      window.ElevenLabs.Conversational.startSession({
-        agentId: 'agent_9301kbf97wsje8br879w325qb1z9',
-        onConnect: () => console.log('Connected to agent'),
-        onDisconnect: () => setIsAgentActive(false)
-      });
-    }
+    // Direct URL approach for ElevenLabs agent
+    window.open('https://elevenlabs.io/conversational-ai/agent_9301kbf97wsje8br879w325qb1z9', '_blank');
   };
 
   return (
