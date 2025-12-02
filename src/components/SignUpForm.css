@@ -1,0 +1,85 @@
+@import './LoginForm.css';
+
+.login-form {
+  width: 479px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin: 0 auto;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.consent-group {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin: 12px 0;
+}
+
+.consent-checkbox {
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+  border: 2px solid #130F26;
+  border-radius: 6px;
+  cursor: pointer;
+  accent-color: #253238;
+  margin-top: 2px;
+}
+
+.consent-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #6E6E6E;
+  line-height: 18px;
+  margin: 0;
+  cursor: pointer;
+}
+
+.consent-label a {
+  color: #000000;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.consent-label a:hover {
+  text-decoration: none;
+}
+
+.login-btn {
+  height: 50px;
+  background: #253238;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  line-height: 22px;
+  transition: background 0.3s ease;
+  margin-top: 8px;
+}
+
+.signup-link {
+  font-size: 13px;
+  font-weight: 600;
+  color: #6E6E6E;
+  text-align: center;
+  line-height: 20px;
+  margin: 8px 0 0 0;
+}
+
+.signup-link a {
+  color: #253238;
+  text-decoration: none;
+}
+
+.signup-link a:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap');
+
+.dashboard-page {
+  width: 100%;
+  min-height: 100vh;
+  background: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Poppins', sans-serif;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 40px;
+  position: relative;
+}
+
+.dashboard-header .logo-section {
+  margin-bottom: 0;
+}
+
+.logout-btn {
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  background: rgba(37, 50, 56, 0.09);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+}
+
+.logout-btn:hover {
+  background: rgba(37, 50, 56, 0.15);
+}
+
+.logout-btn svg {
+  width: 32px;
+  height: 32px;
+}
+
+.dashboard-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px 100px 20px;
+  gap: 40px;
+}
+
+.welcome-card {
+  width: 100%;
+  max-width: 400px;
+  border: 2px solid #e0e0e0;
+  border-radius: 20px;
+  padding: 40px 30px;
+  text-align: center;
+  background: #FFFFFF;
+}
+
+.card-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #000000;
+  margin: 0 0 8px 0;
+}
+
+.card-subtitle {
+  font-size: 13px;
+  font-weight: 500;
+  color: #6E6E6E;
+  margin: 0 0 30px 0;
+}
+
+.center-animation {
+  width: 217px;
+  height: 217px;
+  margin: 0 auto 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  animation: fastSpin 1.5s linear infinite;
+}
+
+@keyframes fastSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.talk-btn {
+  width: 90px;
+  height: 90px;
+  border-radius: 100px;
+  background: #253238;
+  border: 8px solid #B9B9C3;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  transition: transform 0.3s ease;
+}
+
+.talk-btn:hover {
+  transform: scale(1.05);
+}
+
+.talk-btn svg {
+  width: 65px;
+  height: 61px;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.btn-blogs {
+  background: #E8E8E8;
+  color: #253238;
+}
+
+.btn-sos {
+  background: #EF2222;
+  color: #FFFFFF;
+}
+
+.btn-therapist {
+  background: #2C3E50;
+  color: #FFFFFF;
+}
