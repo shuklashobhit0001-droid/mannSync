@@ -11,39 +11,29 @@ export default function DashboardPage({ onLogout }) {
     const script = document.createElement('script');
     script.src = 'https://elevenlabs.io/convai-widget/index.js';
     script.async = true;
+    script.onload = () => {
+      if (window.ElevenLabs) {
+        window.ElevenLabs.Conversation.init({
+          agentId: 'agent_9301kbf97wsje8br879w325qb1z9'
+        });
+      }
+    };
     document.body.appendChild(script);
     return () => document.body.removeChild(script);
   }, []);
 
-  const handleTalkClick = async () => {
-    try {
-      const { Conversation } = await import('@elevenlabs/elevenlabs-js');
-      const conversation = await Conversation.startSession({
-        agentId: 'agent_9301kbf97wsje8br879w325qb1z9',
-        onConnect: () => {
-          console.log('Connected to agent');
-          setIsCallActive(true);
-        },
-        onDisconnect: () => {
-          console.log('Disconnected');
-          setIsCallActive(false);
-        },
-        onError: (error) => {
-          console.error('Error:', error);
-          setIsCallActive(false);
-        }
-      });
-      conversationRef.current = conversation;
-    } catch (error) {
-      console.error('Failed to start conversation:', error);
+  const handleTalkClick = () => {
+    if (window.ElevenLabs && window.ElevenLabs.Conversation) {
+      window.ElevenLabs.Conversation.startSession();
+      setIsCallActive(true);
+    } else {
       window.open('https://elevenlabs.io/conversational-ai/agent_9301kbf97wsje8br879w325qb1z9', '_blank');
     }
   };
 
   const handleEndCall = () => {
-    if (conversationRef.current) {
-      conversationRef.current.endSession();
-      conversationRef.current = null;
+    if (window.ElevenLabs && window.ElevenLabs.Conversation) {
+      window.ElevenLabs.Conversation.endSession();
     }
     setIsCallActive(false);
   };
