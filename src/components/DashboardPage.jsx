@@ -34,6 +34,8 @@ export default function DashboardPage({ onLogout }) {
               <path d="M17.7369 22.1915H18.2629C21.8665 22.1915 24.7901 19.3859 24.7901 15.9261V9.18348C24.7901 5.7208 21.8665 2.91663 18.2629 2.91663H17.7369C14.1332 2.91663 11.2097 5.7208 11.2097 9.18348V15.9261C11.2097 19.3859 14.1332 22.1915 17.7369 22.1915Z" fill="white"/>
             </svg>
           </button>
+          
+          <p className="talk-text">Talk to Us</p>
         </div>
 
         <div className="action-buttons">
