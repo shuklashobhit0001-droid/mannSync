@@ -1,21 +1,26 @@
 import './DashboardPage.css';
 import Logo from './Logo';
 import Footer from './Footer';
+import { useEffect } from 'react';
 
 export default function DashboardPage({ onLogout }) {
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://elevenlabs.io/convai-widget/index.js';
+    script.async = true;
+    document.body.appendChild(script);
+    return () => document.body.removeChild(script);
+  }, []);
 
-  const handleTalkClick = () => {
-    // Trigger ElevenLabs widget
-    if (window.ElevenLabs && window.ElevenLabs.widget) {
-      window.ElevenLabs.widget.open();
-    } else {
-      // Fallback - initialize widget
-      setTimeout(() => {
-        if (window.ElevenLabs && window.ElevenLabs.widget) {
-          window.ElevenLabs.widget.open();
-        }
-      }, 1000);
-    }
+  const handleTalkClick = async () => {
+    await import('@elevenlabs/elevenlabs-js').then(({ Conversation }) => {
+      const conversation = new Conversation({
+        agentId: 'agent_9301kbf97wsje8br879w325qb1z9',
+      });
+      conversation.startSession();
+    }).catch(() => {
+      window.open('https://elevenlabs.io/conversational-ai/agent_9301kbf97wsje8br879w325qb1z9', '_blank');
+    });
   };
 
   return (
