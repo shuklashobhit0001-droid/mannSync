@@ -111,7 +111,12 @@
   align-items: center;
   justify-content: center;
   margin: 0 auto;
-  transition: transform 0.3s ease;
+  outline: none;
+}
+
+.talk-btn:focus {
+  outline: none;
+  border: 8px solid #B9B9C3;
 }
 
 
