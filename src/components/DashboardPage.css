@@ -114,9 +114,7 @@
   transition: transform 0.3s ease;
 }
 
-.talk-btn:hover {
-  transform: scale(1.05);
-}
+
 
 .talk-btn svg {
   width: 65px;
