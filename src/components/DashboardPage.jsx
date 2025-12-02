@@ -5,8 +5,17 @@ import Footer from './Footer';
 export default function DashboardPage({ onLogout }) {
 
   const handleTalkClick = () => {
-    // Direct URL approach for ElevenLabs agent
-    window.open('https://elevenlabs.io/conversational-ai/agent_9301kbf97wsje8br879w325qb1z9', '_blank');
+    // Trigger ElevenLabs widget
+    if (window.ElevenLabs && window.ElevenLabs.widget) {
+      window.ElevenLabs.widget.open();
+    } else {
+      // Fallback - initialize widget
+      setTimeout(() => {
+        if (window.ElevenLabs && window.ElevenLabs.widget) {
+          window.ElevenLabs.widget.open();
+        }
+      }, 1000);
+    }
   };
 
   return (
